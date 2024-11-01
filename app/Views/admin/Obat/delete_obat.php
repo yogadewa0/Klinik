@@ -21,8 +21,6 @@
   </head>
   <body>
 
-  
-
   <div class="container-md mt-4 p-4 rounded">
     <div class="content-container">
         <div class="d-flex justify-content-end">
@@ -56,7 +54,7 @@
                 <a href="<?php echo base_url('edit-obat-view/'.$item['kodeobat']);?>" class="btn btn-sm">
                   <i class="fas fa-edit"></i>
                 </a>
-                  <a href="<?php echo base_url('delete-obat/'.$item['kodeobat']);?>" class="btn btn-sm">
+                  <a href="javascript:void(0);" onclick="confirmDelete('<?php echo base_url('delete-obat/'.$item['kodeobat']);?>')" class="btn btn-sm">
                   <i class="fas fa-trash-alt"></i>
                 </a>
                   </td>
@@ -94,9 +92,9 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
   <script>
-     $(document).ready(function() {
+      
+    $(document).ready(function() {
       $('#obat-list').DataTable();
-        // Hide modal on close and cancel buttons
         $('#deleteModal .btn-secondary, #deleteModal .close').click(function() {
             $('#deleteModal').modal('hide');
         });
