@@ -27,8 +27,12 @@ class LoginController extends BaseController
         if ($user) {
             return redirect()->to('/dashboard');
         } else {
-            return redirect()->back()->withInput()->with('error', 'Invalid username or password');
+            // Set flash message for error
+            session()->setFlashdata('error', 'Username atau password salah');
+            return view('admin/login/SignUp');
+            // return redirect()->back()->withInput();
+            // return redirect()->to('/SignUp');
+            // return back()->to('admin/login/SignUp');
         }
     }
-
 }
