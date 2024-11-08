@@ -27,7 +27,7 @@ $routes->get('user-form', 'Admin\PasienController::create');
 $routes->post('submit-form', 'Admin\PasienController::store');
 $routes->get('edit-view/(:num)', 'Admin\PasienController::singleUser/$1');
 $routes->post('update', 'Admin\PasienController::update');
-$routes->get('delete/(:num)', 'Admin\PasienController::delete/$1');
+$routes->get('delete/(:any)', 'Admin\PasienController::delete/$1');
 
 // CRUD Obat
 $routes->get('obat-list', 'Admin\ObatController::index');
