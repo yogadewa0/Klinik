@@ -52,3 +52,8 @@ $routes->get('delete-user/(:segment)', 'Admin\PenggunaController::delete/$1');
 // CRUD Rekam Medis
 
 $routes->resource('Admin/RekamMedisController', ['controller' => 'Admin\Home']);
+
+
+// Laporan Keuangan
+$routes->get('pendapatan', 'Admin\LaporanController::index');
+$routes->get('pengeluaran', 'Admin\LaporanController::pengeluaran');

@@ -43,10 +43,10 @@
                             </a>
                             <ul id="laporan-keuangan" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                                 <li class="sidebar-item" data-title="Laporan Pemasukan">
-                                    <a href="#" class="sidebar-link">Laporan Pemasukan</a>
+                                    <a href="pendapatan" class="sidebar-link">Laporan Pemasukan</a>
                                 </li>
                                 <li class="sidebar-item" data-title="Laporan Pengeluaran">
-                                    <a href="#" class="sidebar-link">Laporan Pengeluaran</a>
+                                    <a href="pengeluaran" class="sidebar-link">Laporan Pengeluaran</a>
                                 </li>
                             </ul>
                         </div>                     

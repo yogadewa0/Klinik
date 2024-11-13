@@ -1,5 +1,4 @@
-<?= $this->extend('admin/layout/template') ?>
-<?= $this->Section('content') ?>
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -7,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Codeigniter 4 CRUD App Example - Users</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <?= $this->extend('admin/layout/template') ?>
+    <?= $this->Section('content') ?>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
     <style> 
       .content-container {
