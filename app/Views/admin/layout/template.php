@@ -129,6 +129,25 @@
                 });
             });
         });
+        document.addEventListener("DOMContentLoaded", function () {
+            // Select all sidebar items
+            var sidebarItems = document.querySelectorAll("#sidebar-wrapper .list-group-item, #sidebar-wrapper .sidebar-link");
+
+            // Loop through each item and add event listeners for mouse enter and leave
+            sidebarItems.forEach(function(item) {
+                item.addEventListener("mouseenter", function() {
+                    item.style.backgroundColor = "#1499A4"; // Highlight color yang lebih terang dari #0E7C87
+                    item.style.color = "#ffffff"; // Text color on hover
+                });
+
+                item.addEventListener("mouseleave", function() {
+                    item.style.backgroundColor = "transparent"; // Reset to default color
+                    item.style.color = "var(--second-text-color)"; // Reset text color to original
+                });
+            });
+        });
+
+
     </script>
 
 </body>
