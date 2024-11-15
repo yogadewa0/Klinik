@@ -19,52 +19,73 @@
 </head>
 
 <body>
-  <div class="container mt-5">
-    <form method="post" id="update_user" name="update_user" 
-    action="<?= site_url('/update') ?>">
-      <input type="hidden" name="id" id="id" value="<?php echo $user_obj['id']; ?>">
+<div class="container mt-5">
+    <form method="post" id="update_user" name="update_user" action="<?= site_url('/update') ?>">
+        <input type="hidden" name="id" value="<?php echo $user_obj['id']; ?>">
 
-      <div class="form-group">
-        <label>Nama</label>
-        <input type="text" name="nama" class="form-control" value="<?php echo $user_obj['nama']; ?>">
-      </div>
-
-      <div class="form-group">
-        <label>Alamat</label>
-        <input type="alamat" name="alamat" class="form-control" value="<?php echo $user_obj['alamat']; ?>">
-      </div>
-
-      <div class="form-group">
-        <label>No Telpon</label>
-        <input type="notelpon" name="notelpon" class="form-control" value="<?php echo $user_obj['notelpon']; ?>">
-      </div>
-
-      <div class="form-group">
-        <label>Usia</label>
-        <input type="usia" name="usia" class="form-control" value="<?php echo $user_obj['usia']; ?>">
-      </div>
-
-      <div class="form-group">
-        <label>Jenis Kelamin</label><br>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="jeniskelamin" id="laki-laki" value="Laki-laki" <?php if($user_obj['jeniskelamin'] == 'Laki-laki') echo 'checked'; ?>>
-            <label class="form-check-label" for="laki-laki">Laki-laki</label>
+        <!-- Nama -->
+        <div class="form-group">
+            <label>Nama</label>
+            <input type="text" name="nama" class="form-control" value="<?php echo $user_obj['nama']; ?>" required>
         </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="jeniskelamin" id="perempuan" value="Perempuan" <?php if($user_obj['jeniskelamin'] == 'Perempuan') echo 'checked'; ?>>
-            <label class="form-check-label" for="perempuan">Perempuan</label>
-        </div>
-       </div>
-      
 
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block">Save Data</button>
-      </div>
-      <div class="form-group">
-        <a href="<?= site_url('users-list') ?>" class="btn btn-danger btn-block">Kembali</a>
-      </div>
+        <!-- Alamat -->
+        <div class="form-group">
+            <label>Alamat</label>
+            <input type="text" name="alamat" class="form-control" value="<?php echo $user_obj['alamat']; ?>" required>
+        </div>
+
+        <!-- No Telpon -->
+        <div class="form-group">
+            <label>No Telpon</label>
+            <input type="text" name="notelpon" class="form-control" value="<?php echo $user_obj['notelpon']; ?>" required>
+        </div>
+
+        <!-- Tanggal Lahir -->
+        <div class="form-group">
+            <label>Tanggal Lahir</label>
+            <input type="date" name="tanggal_lahir" class="form-control" value="<?= date('Y-m-d', strtotime($user_obj['tanggal_lahir'])); ?>" required>
+        </div>
+
+
+        <!-- Jenis Kelamin -->
+        <div class="form-group">
+            <label>Jenis Kelamin</label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="jeniskelamin" value="Laki-laki" <?php if($user_obj['jeniskelamin'] == 'Laki-laki') echo 'checked'; ?> required>
+                <label class="form-check-label" for="laki-laki">Laki-laki</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="jeniskelamin" value="Perempuan" <?php if($user_obj['jeniskelamin'] == 'Perempuan') echo 'checked'; ?> required>
+                <label class="form-check-label" for="perempuan">Perempuan</label>
+            </div>
+        </div>
+
+        <!-- Golongan Darah -->
+        <div class="form-group">
+            <label>Golongan Darah</label>
+            <select class="form-control" name="golongan_darah" required>
+                <option value="A" <?php echo $user_obj['golongan_darah'] == 'A' ? 'selected' : ''; ?>>A</option>
+                <option value="B" <?php echo $user_obj['golongan_darah'] == 'B' ? 'selected' : ''; ?>>B</option>
+                <option value="AB" <?php echo $user_obj['golongan_darah'] == 'AB' ? 'selected' : ''; ?>>AB</option>
+                <option value="O" <?php echo $user_obj['golongan_darah'] == 'O' ? 'selected' : ''; ?>>O</option>
+            </select>
+        </div>
+
+        <!-- Alergi -->
+        <div class="form-group">
+            <label>Alergi</label>
+            <textarea name="alergi" class="form-control"><?php echo $user_obj['alergi']; ?></textarea>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Simpan</button>
+        </div>
+        <div class="form-group">
+            <a href="<?= site_url('users-list') ?>" class="btn btn-danger btn-block">Kembali</a>
+        </div>
     </form>
-  </div>
+</div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js"></script>

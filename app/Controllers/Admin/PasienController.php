@@ -18,20 +18,22 @@ class PasienController extends BaseController
         return view('admin/Pasien/add_pasien');
     }
  
-    // insert data
+    
     public function store() {
         $userModel = new PasienModel();
         $data = [
             'nama' => $this->request->getVar('nama'),
             'alamat'  => $this->request->getVar('alamat'),
             'notelpon' => $this->request->getVar('notelpon'),
-            'usia'  => $this->request->getVar('usia'),
-            'jeniskelamin' => $this->request->getVar('jeniskelamin')  
+            'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
+            'jeniskelamin' => $this->request->getVar('jeniskelamin'),
+            'golongan_darah' => $this->request->getVar('golongan_darah'),
+            'alergi' => $this->request->getVar('alergi')
         ];
         $userModel->insert($data);
         return $this->response->redirect(site_url('/users-list'));
     }
-
+    
     // show single user
     public function singleUser($id = null){
         $userModel = new PasienModel();
@@ -39,16 +41,17 @@ class PasienController extends BaseController
         return view('admin/Pasien/edit_pasien', $data);
     }
 
-    // update user data
-    public function update(){
+    public function update() {
         $userModel = new PasienModel();
         $id = $this->request->getVar('id');
         $data = [
             'nama' => $this->request->getVar('nama'),
             'alamat'  => $this->request->getVar('alamat'),
             'notelpon' => $this->request->getVar('notelpon'),
-            'usia'  => $this->request->getVar('usia'),
-            'jeniskelamin' => $this->request->getVar('jeniskelamin') 
+            'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
+            'jeniskelamin' => $this->request->getVar('jeniskelamin'),
+            'golongan_darah' => $this->request->getVar('golongan_darah'),
+            'alergi' => $this->request->getVar('alergi')
         ];
         $userModel->update($id, $data);
         return $this->response->redirect(site_url('/users-list'));

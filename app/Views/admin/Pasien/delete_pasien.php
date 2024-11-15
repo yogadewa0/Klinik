@@ -12,7 +12,7 @@
     <style>
         .content-container {
             background-color: white;
-            border-radius: 5px;
+            border-radius: 2px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             padding: 20px;
         }
@@ -38,8 +38,10 @@
                         <th>Nama</th>
                         <th>Alamat</th>
                         <th>No Telpon</th>
-                        <th>Usia</th>
+                        <th>Tanggal Lahir</th>
                         <th>Jenis Kelamin</th>
+                        <th>Golongan Darah</th>
+                        <th>Alergi</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -51,15 +53,19 @@
                                 <td><?php echo $user['nama']; ?></td>
                                 <td><?php echo $user['alamat']; ?></td>
                                 <td><?php echo $user['notelpon']; ?></td>
-                                <td><?php echo $user['usia']; ?></td>
+                                <td><?php echo date('d-m-Y ', strtotime($user['tanggal_lahir'])); ?></td>
                                 <td><?php echo $user['jeniskelamin']; ?></td>
+                                <td><?php echo $user['golongan_darah']; ?></td>
+                                <td><?php echo $user['alergi']; ?></td>
                                 <td>
-                                    <a href="<?php echo base_url('edit-view/'.$user['id']);?>" class="btn btn-sm">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <button class="btn btn-sm btn-danger" onclick="confirmDelete('<?php echo base_url('delete/'.$user['id']); ?>')">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
+                                    <div class="d-flex justify-content-start">
+                                        <a href="<?php echo base_url('edit-view/'.$user['id']);?>" class="btn btn-sm btn-secondary "style="margin-right: 5px;">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <button class="btn btn-sm btn-danger " onclick="confirmDelete('<?php echo base_url('delete/'.$user['id']); ?>')">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -69,6 +75,7 @@
         </div>
     </div>
 </div>
+
 
 <!-- Modal Konfirmasi Hapus -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
