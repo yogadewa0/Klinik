@@ -42,7 +42,7 @@
       <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block">Save Data</button>
       </div class="form-group">
-        <a href="<?= site_url('obat-list') ?>" class="btn btn-danger btn-block">Kembali</a>"></a>
+        <a href="<?= site_url('obat-list') ?>" class="btn btn-danger btn-block">Kembali</a></a>
       <div>
 
       </div>

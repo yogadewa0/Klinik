@@ -25,7 +25,7 @@ $routes->get('dashboard', 'Admin\DashboardController::index');
 $routes->get('users-list', 'Admin\PasienController::index');
 $routes->get('user-form', 'Admin\PasienController::create');
 $routes->post('submit-form', 'Admin\PasienController::store');
-$routes->get('edit-view/(:num)', 'Admin\PasienController::singleUser/$1');
+$routes->get('edit-view/(:any)', 'Admin\PasienController::singleUser/$1');
 $routes->post('update', 'Admin\PasienController::update');
 $routes->get('delete/(:any)', 'Admin\PasienController::delete/$1');
 
