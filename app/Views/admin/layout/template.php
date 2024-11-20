@@ -16,50 +16,79 @@
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
-            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase">
-                    <img src="/asset-admin/img/logoklinik.png" alt="" class="icon me-2"></div>
-                    <img src="/asset-admin/img/ikonmantri.png" alt="" class="iconmantri mt-3">
-                    <div class="list-group list-group-flush my-3">
-                        <a href="dashboard" class="list-group-item list-group-item-action d-flex align-items-center bg-transparent second-text active" data-title="Dashboard">
-                            <img src="/asset-admin/img/Home.png" alt="Dashboard Icon" class="iconmenu me-2">Dashboard
-                        </a>
-                        <a href="users-list" class="list-group-item list-group-item-action d-flex align-items-center bg-transparent second-text active" data-title="Data Pasien">
-                            <img src="/asset-admin/img/Pasien.png" alt="Projects Icon" class="iconmenu me-2">Data Pasien
-                        </a>
-                        <a href="obat-list" class="list-group-item list-group-item-action d-flex align-items-center bg-transparent second-text active" data-title="Data Obat">
-                            <img src="/asset-admin/img/obat.png" alt="Analytics Icon" class="iconmenu me-2">Data Obat
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action d-flex align-items-center bg-transparent second-text active" data-title="Data Rekam Medis">
-                            <img src="/asset-admin/img/Rekam Medis.png" alt="Reports Icon" class="iconmenu me-2">Data Rekam Medis
-                        </a>
-                        <a href="#" class="list-group-item list-group-item-action d-flex align-items-center bg-transparent second-text active" data-title="Data Transaksi">
-                            <img src="/asset-admin/img/transaksi.png" alt="Store Icon" class="iconmenu me-2">Data Transaksi
-                        </a>
-                        <div class="sidebar-item">
-                            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                                data-bs-target="#laporan-keuangan" aria-expanded="false" aria-controls="laporan-keuangan">
-                                <img src="/asset-admin/img/Laporan.png" alt="Products Icon" class="iconmenu me-2">
-                                <span>Laporan Keuangan</span>
-                            </a>
-                            <ul id="laporan-keuangan" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                                <li class="sidebar-item" data-title="Laporan Pemasukan">
-                                    <a href="pendapatan" class="sidebar-link">Laporan Pemasukan</a>
-                                </li>
-                                <li class="sidebar-item" data-title="Laporan Pengeluaran">
-                                    <a href="pengeluaran" class="sidebar-link">Laporan Pengeluaran</a>
-                                </li>
-                            </ul>
-                        </div>                     
-
-                        <a href="pengguna" class="list-group-item list-group-item-action d-flex align-items-center bg-transparent second-text active" data-title="User">
-                            <img src="/asset-admin/img/pengaturan.png" alt="Chat Icon" class="iconmenu me-2">User
-                        </a>
-                        <a href="/login" class="list-group-item list-group-item-action d-flex align-items-center bg-transparent second-text active">
-                            <img src="/asset-admin/img/keluar.png" alt="Logout Icon" class="iconmenu me-2">Keluar
-                        </a>
-                    </div>
-                    
+    <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase">
+        <img src="/asset-admin/img/logoklinik.png" alt="" class="icon me-2">
+    </div>
+    <img src="/asset-admin/img/ikonmantri.png" alt="" class="iconmantri mt-3">
+    <div class="list-group list-group-flush my-3">
+        <!-- Ubah setiap menu item menggunakan struktur yang sama -->
+        <div class="sidebar-item">
+            <a href="dashboard" class="sidebar-link" data-title="Dashboard">
+                <img src="/asset-admin/img/Home.png" alt="Dashboard Icon" class="iconmenu">
+                Dashboard
+            </a>
         </div>
+        
+        <div class="sidebar-item">
+            <a href="users-list" class="sidebar-link" data-title="Data Pasien">
+                <img src="/asset-admin/img/Pasien.png" alt="Projects Icon" class="iconmenu">
+                Data Pasien
+            </a>
+        </div>
+        
+        <div class="sidebar-item">
+            <a href="obat-list" class="sidebar-link" data-title="Data Obat">
+                <img src="/asset-admin/img/obat.png" alt="Analytics Icon" class="iconmenu">
+                Data Obat
+            </a>
+        </div>
+        
+        <div class="sidebar-item">
+            <a href="#" class="sidebar-link" data-title="Data Rekam Medis">
+                <img src="/asset-admin/img/Rekam Medis.png" alt="Reports Icon" class="iconmenu">
+                Data Rekam Medis
+            </a>
+        </div>
+        
+        <div class="sidebar-item">
+            <a href="#" class="sidebar-link" data-title="Data Transaksi">
+                <img src="/asset-admin/img/transaksi.png" alt="Store Icon" class="iconmenu">
+                Data Transaksi
+            </a>
+        </div>
+        
+        <!-- Laporan Keuangan dengan dropdown -->
+        <div class="sidebar-item">
+            <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                data-bs-target="#laporan-keuangan" aria-expanded="false" aria-controls="laporan-keuangan">
+                <img src="/asset-admin/img/Laporan.png" alt="Products Icon" class="iconmenu">
+                <span>Laporan Keuangan</span>
+            </a>
+            <ul id="laporan-keuangan" class="sidebar-dropdown list-unstyled collapse">
+                <li class="sidebar-item">
+                    <a href="pendapatan" class="sidebar-link">Laporan Pemasukan</a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="pengeluaran" class="sidebar-link">Laporan Pengeluaran</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sidebar-item">
+            <a href="pengguna" class="sidebar-link" data-title="User">
+                <img src="/asset-admin/img/pengaturan.png" alt="Chat Icon" class="iconmenu">
+                User
+            </a>
+        </div>
+        
+        <div class="sidebar-item">
+            <a href="/login" class="sidebar-link">
+                <img src="/asset-admin/img/keluar.png" alt="Logout Icon" class="iconmenu">
+                Keluar
+            </a>
+        </div>
+    </div>
+</div>
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
@@ -129,23 +158,7 @@
                 });
             });
         });
-        document.addEventListener("DOMContentLoaded", function () {
-            // Select all sidebar items
-            var sidebarItems = document.querySelectorAll("#sidebar-wrapper .list-group-item, #sidebar-wrapper .sidebar-link");
 
-            // Loop through each item and add event listeners for mouse enter and leave
-            sidebarItems.forEach(function(item) {
-                item.addEventListener("mouseenter", function() {
-                    item.style.backgroundColor = "#1499A4"; // Highlight color yang lebih terang dari #0E7C87
-                    item.style.color = "#ffffff"; // Text color on hover
-                });
-
-                item.addEventListener("mouseleave", function() {
-                    item.style.backgroundColor = "transparent"; // Reset to default color
-                    item.style.color = "var(--second-text-color)"; // Reset text color to original
-                });
-            });
-        });
 
 
     </script>
