@@ -14,6 +14,21 @@ class UserMigration extends Migration
                 'constraint'     => 50,
                 'null'           => false,
             ],
+            'role'          => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 20,
+                'null'           => false, // Jika role wajib diisi
+            ],
+            'username'      => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 100,
+                'null'           => false, // Jika username wajib diisi
+            ],
+            'password'      => [
+                'type'           => 'VARCHAR',
+                'constraint'     => 255,
+                'null'           => false, // Jika password wajib diisi
+            ],
             'nama'          => [
                 'type'           => 'VARCHAR',
                 'constraint'     => 100,
@@ -29,19 +44,14 @@ class UserMigration extends Migration
                 'constraint'     => 15,
                 'null'           => false, // Jika no_telp wajib diisi
             ],
-            'role'          => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 20,
-                'null'           => false, // Jika role wajib diisi
-            ],
         ]);
 
         $this->forge->addKey('id_user', true); // Menetapkan id_user sebagai primary key
-        $this->forge->createTable('users'); // Membuat tabel users
+        $this->forge->createTable('user'); // Membuat tabel user
     }
 
     public function down()
     {
-        $this->forge->dropTable('users'); // Menghapus tabel users saat migrasi dihapus
+        $this->forge->dropTable('user'); // Menghapus tabel user saat migrasi dihapus
     }
 }

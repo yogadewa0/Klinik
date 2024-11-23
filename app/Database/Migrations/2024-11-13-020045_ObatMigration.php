@@ -4,43 +4,43 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Obat extends Migration
+class ObatMigration extends Migration
 {
     public function up()
     {
         $this->forge->addField([
-            'id_obat'          => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 50,
-                'null'           => false,
+            'nama_obat' => [
+                'type'       => 'VARCHAR',
+                'constraint' => 100,
+                'null'       => false,
             ],
-            'nama'             => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 100,
-                'null'           => false,
+            'tanggal_kadaluarsa' => [
+                'type'       => 'DATETIME',
+                'null'       => false,
             ],
-            'ukuran'           => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 50,
-                'null'           => false,
+            'satuan' => [
+                'type'       => 'VARCHAR',
+                'constraint' => 20,
+                'null'       => false,
             ],
-            'satuan'           => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 20,
-                'null'           => false,
+            'ukuran' => [
+                'type'       => 'VARCHAR',
+                'constraint' => 50,
+                'null'       => false,
             ],
-            'tgl_kadaluarsa'   => [
-                'type'           => 'DATETIME',
-                'null'           => false,
+            'harga_obat' => [
+                'type'       => 'INT',
+                'null'       => false,
+                'unsigned'   => true,
             ],
-            'harga'            => [
-                'type'           => 'INT',
-                'null'           => false,
-                'unsigned'       => true,
+            'kode_obat' => [
+                'type'       => 'VARCHAR',
+                'constraint' => 50,
+                'null'       => false,
             ],
         ]);
 
-        $this->forge->addKey('id_obat', true); // Menetapkan id_obat sebagai primary key
+        $this->forge->addKey('kode_obat', true); // Menetapkan kode_obat sebagai primary key
         $this->forge->createTable('obat'); // Membuat tabel obat
     }
 
