@@ -21,7 +21,7 @@
 <body>
   <div class="container mt-5">
     <form method="post" id="add_create" name="add_create" 
-    action="<?= site_url('/submit-rekammedis-form') ?>">
+    action="<?= site_url('/submit-rekam_medis-form') ?>">
       <div class="form-group">
         <label>ID Pasien</label>
         <input type="text" name="id_pasien" class="form-control">
