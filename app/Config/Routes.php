@@ -49,9 +49,13 @@ $routes->post('update-user', 'Admin\PenggunaController::update');
 $routes->get('delete-user/(:segment)', 'Admin\PenggunaController::delete/$1');
 
 
-// CRUD Rekam Medis
-
-$routes->resource('Admin/RekamMedisController', ['controller' => 'Admin\Home']);
+// CRUD Obat
+$routes->get('rekammedis-list', 'Admin\RekamMedisController::index');
+$routes->get('rekam_medis-form', 'Admin\RekamMedisController::create');
+$routes->post('submit-rekam_medis-form', 'Admin\RekamMedisController::store');
+$routes->get('edit-rekammedis-view/(:segment)', 'Admin\RekamMedisController::singleObat/$1');
+$routes->post('update-rekam_medis', 'Admin\RekamMedisController::update');
+$routes->get('delete-rekam_medis/(:segment)', 'Admin\RekamMedisController::delete/$1');
 
 
 // Laporan Keuangan
