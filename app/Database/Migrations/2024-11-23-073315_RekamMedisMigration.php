@@ -16,7 +16,7 @@ class RekamMedisMigration extends Migration
             ],
             'id_pasien' => [
                 'type'       => 'VARCHAR',
-                'constraint' => 50,
+                'constraint' => 25,
                 'null'       => false,
             ],
             'tgl_kunjungan' => [

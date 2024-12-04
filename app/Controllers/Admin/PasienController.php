@@ -9,7 +9,7 @@ class PasienController extends BaseController
     public function index(){
         
         $userModel = new PasienModel();
-        $data['pasien'] = $userModel->orderBy('id', 'DESC')->findAll();
+        $data['pasien'] = $userModel->orderBy('id_pasien', 'DESC')->findAll();
         return view('admin/Pasien/delete_pasien', $data);
     }
 
@@ -35,15 +35,15 @@ class PasienController extends BaseController
     }
     
     // show single user
-    public function singleUser($id = null){
+    public function singleUser($id_pasien = null){
         $userModel = new PasienModel();
-        $data['user_obj'] = $userModel->where('id', $id)->first();
+        $data['user_obj'] = $userModel->where('id_pasien', $id_pasien)->first();
         return view('admin/Pasien/edit_pasien', $data);
     }
 
     public function update() {
         $userModel = new PasienModel();
-        $id = $this->request->getVar('id');
+        $id_pasien = $this->request->getVar('id_pasien');
         $data = [
             'nama' => $this->request->getVar('nama'),
             'alamat'  => $this->request->getVar('alamat'),
@@ -53,14 +53,14 @@ class PasienController extends BaseController
             'golongan_darah' => $this->request->getVar('golongan_darah'),
             'alergi' => $this->request->getVar('alergi')
         ];
-        $userModel->update($id, $data);
+        $userModel->update($id_pasien, $data);
         return $this->response->redirect(site_url('/users-list'));
     }
  
     // delete user
-    public function delete($id = null){
+    public function delete($id_pasien = null){
         $userModel = new PasienModel();
-        $data['user'] = $userModel->where('id', $id)->delete($id);
+        $data['user'] = $userModel->where('id_pasien', $id_pasien)->delete($id_pasien);
         return $this->response->redirect(site_url('/users-list'));
     }    
 }

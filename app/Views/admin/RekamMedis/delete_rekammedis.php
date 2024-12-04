@@ -46,25 +46,25 @@
                 </thead>
                 <tbody>
                     <?php if ($rekam_medis): ?>
-                    <?php foreach ($rekam_medis as $item): ?>
-                        <tr>
-                            <td><?php $item['id_rekam_medis']; ?></td>
-                            <td><?php $item['id_pasien']; ?></td>
-                            <td><?php $item['tgl_kunjungan']; ?></td>
-                            <td><?php $item['diagnosa']; ?></td>
-                            <td><?php $item['penanganan']; ?></td>
-                            <td><?php $item['id_user']; ?></td>
-                            <td>
-                            <a href="<?= base_url('edit-rekam-medis-view/'. $item['id_rekam_medis']) ?>"class="btn btn-sm">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                                <a href="javascript:void(0);" onclick="confirmDelete('<?php base_url('delete-rekam-medis/'.$item['id_rekam_medis']);?>')" class="btn btn-sm">
-                                <i class="fas fa-trash-alt"></i>
-                            </a>
+                        <?php foreach ($rekam_medis as $item): ?>
+                            <tr>
+                                <td><?php echo $item['id_rekam_medis']; ?></td>
+                                <td><?php echo $item['id_pasien']; ?></td>
+                                <td><?php echo $item['tgl_kunjungan']; ?></td>
+                                <td><?php echo $item['diagnosa']; ?></td>
+                                <td><?php echo $item['penanganan']; ?></td>
+                                <td><?php echo $item['id_user']; ?></td>
+                                <td>
+                                    <a href="<?= base_url('edit-rekam-medis-view/' . $item['id_rekam_medis']) ?>" class="btn btn-sm">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="javascript:void(0);" onclick="confirmDelete('<?= base_url('delete-rekam-medis/' . $item['id_rekam_medis']) ?>')" class="btn btn-sm">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
                                 </td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php endif; ?>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </tbody>
             </table>
         </div>

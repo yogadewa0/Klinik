@@ -49,7 +49,7 @@
                     <?php if($pasien): ?>
                         <?php foreach($pasien as $user): ?>
                             <tr>
-                                <td><?php echo $user['id']; ?></td>
+                                <td><?php echo $user['id_pasien']; ?></td>
                                 <td><?php echo $user['nama']; ?></td>
                                 <td><?php echo $user['alamat']; ?></td>
                                 <td><?php echo $user['notelpon']; ?></td>
@@ -59,10 +59,10 @@
                                 <td><?php echo $user['alergi']; ?></td>
                                 <td>
                                     <div class="d-flex justify-content-start">
-                                        <a href="<?php echo base_url('edit-view/'.$user['id']);?>" class="btn btn-sm btn-secondary "style="margin-right: 5px;">
+                                        <a href="<?php echo base_url('edit-view/'.$user['id_pasien']);?>" class="btn btn-sm btn-secondary "style="margin-right: 5px;">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <button class="btn btn-sm btn-danger " onclick="confirmDelete('<?php echo base_url('delete/'.$user['id']); ?>')">
+                                        <button class="btn btn-sm btn-danger " onclick="confirmDelete('<?php echo base_url('delete/'.$user['id_pasien']); ?>')">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </div>

@@ -1,7 +1,7 @@
 <?php
 namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
-use App\Models\RekamMedis;
+use App\Models\RekamMedisModel;
 
 class RekamMedisController extends BaseController
 {

@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="sidebar-item">
-                    <a href="#" class="sidebar-link" data-title="Data Rekam Medis">
+                    <a href="rekammedis-list" class="sidebar-link" data-title="Data Rekam Medis">
                         <img src="/asset-admin/img/Rekam Medis.png" alt="Reports Icon" class="iconmenu">
                         Data Rekam Medis
                     </a>
