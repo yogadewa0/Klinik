@@ -12,25 +12,31 @@ class PasienMigration extends Migration
             'id_pasien' => [
                 'type' => 'VARCHAR',
                 'constraint' => '25',
-                'auto_increment' => true,
+                'null' => false,
             ],
             'nama' => [
                 'type' => 'VARCHAR',
                 'constraint' => '150',
+                'null' => false,
             ],
             'tgl_lahir' => [
-                'type' => 'DATE',
+                'type' => 'DATETIME',
+                'null' => false,
             ],
             'gol_darah' => [
-                'type' => 'ENUM',
-                'constraint' => ['A', 'B', 'AB', 'O'],
+                'type' => 'VARCHAR',
+                'constraint' => '3', // Menggunakan VARCHAR untuk gol_darah, panjang maksimum 3 karakter
+                'null' => true,
             ],
             'alergi' => [
-                'type' => 'TEXT',
+                'type' => 'VARCHAR',
+                'constraint' => '255',
                 'null' => true,
             ],
             'alamat' => [
-                'type' => 'TEXT',
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => false,
             ],
             'no_telp' => [
                 'type' => 'VARCHAR',
