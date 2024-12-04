@@ -20,7 +20,6 @@ $routes->get('login', 'Admin\LoginController::index');
 $routes->post('login/authenticate', 'Admin\LoginController::authenticate');
 $routes->get('dashboard', 'Admin\DashboardController::index');
 
-
 // CRUD Pasien
 $routes->get('users-list', 'Admin\PasienController::index');
 $routes->get('user-form', 'Admin\PasienController::create');
@@ -49,7 +48,7 @@ $routes->post('update-user', 'Admin\PenggunaController::update');
 $routes->get('delete-user/(:segment)', 'Admin\PenggunaController::delete/$1');
 
 
-// CRUD Obat
+// CRUD Rekam Medis
 $routes->get('rekammedis-list', 'Admin\RekamMedisController::index');
 $routes->get('rekam_medis-form', 'Admin\RekamMedisController::create');
 $routes->post('submit-rekam_medis-form', 'Admin\RekamMedisController::store');
