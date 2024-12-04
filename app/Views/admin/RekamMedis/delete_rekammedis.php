@@ -24,7 +24,7 @@
 <div class="container-md mt-4 p-4 rounded">
     <div class="content-container">
         <div class="d-flex justify-content-end">
-            <a href="<?= site_url('/rekammedis-form') ?>" class="btn btn-success mb-2">Tambah Rekam Medis</a>
+            <a href="<?= site_url('/rekam_medis-form') ?>" class="btn btn-success mb-2">Tambah Rekam Medis</a>
         </div>
         <?php
         if(isset($_SESSION['msg'])){
@@ -36,11 +36,11 @@
                 <thead>
                     <tr>
                         <th>ID Rekam Medis</th>
-                        <th>ID Pasien</th>
+                        <th>Nama Pasien</th>
+                        <th>Nama Mantri</th>
                         <th>Tanggal Kunjungan</th>
                         <th>Diagnosa</th>
                         <th>Penanganan</th>
-                        <th>ID User</th>
                         <th>Action</th>
                     </tr>
                 </thead>

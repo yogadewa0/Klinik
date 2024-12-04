@@ -23,8 +23,12 @@
     <form method="post" id="add_create" name="add_create" 
     action="<?= site_url('/submit-rekam_medis-form') ?>">
       <div class="form-group">
-        <label>ID Pasien</label>
+        <label>Nama Pasien</label>
         <input type="text" name="id_pasien" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Nama Mantri</label>
+        <input type="text" name="id_user" class="form-control">
       </div>
       <div class="form-group">
         <label>Tanggal Kunjungan</label>
@@ -37,10 +41,6 @@
       <div class="form-group">
         <label>Penanganan</label>
         <textarea name="penanganan" class="form-control" rows="3"></textarea>
-      </div>
-      <div class="form-group">
-        <label>ID User</label>
-        <input type="text" name="id_user" class="form-control">
       </div>
       <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block">Tambah</button>
