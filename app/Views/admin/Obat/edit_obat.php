@@ -20,8 +20,7 @@
 
 <body>
   <div class="container mt-5">
-    <form method="post" id="update_obat" name="update_obat" 
-    action="<?= site_url('/update-obat') ?>">
+    <form method="post" id="update_obat" name="update_obat" action="<?= site_url('/update-obat') ?>">
       <input type="hidden" name="kodeobat" id="kodeobat" value="<?php echo $obat_obj['kodeobat']; ?>">
 
       <div class="form-group">
@@ -39,12 +38,24 @@
         <input type="text" name="hargaobat" class="form-control" value="<?php echo $obat_obj['hargaobat']; ?>">
       </div>
 
+      
       <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block">Save Data</button>
-      </div class="form-group">
-        <a href="<?= site_url('obat-list') ?>" class="btn btn-danger btn-block">Kembali</a></a>
-      <div>
+        <label>Ukuran</label>
+        <input type="text" name="ukuran" class="form-control" value="<?php echo $obat_obj['ukuran']; ?>">
+      </div>
+      <div class="form-group">
+        <label>Satuan</label>
+        <select name="satuan" class="form-control">
+          <option value="strip" <?php echo ($obat_obj['satuan'] == 'strip') ? 'selected' : ''; ?>>Strip</option>
+          <option value="botol" <?php echo ($obat_obj['satuan'] == 'botol') ? 'selected' : ''; ?>>Botol</option>
+        </select>
+      </div>
 
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block">Update</button>
+      </div>
+      <div class="form-group">
+        <a href="<?= site_url('obat-list') ?>" class="btn btn-danger btn-block">Kembali</a>
       </div>
     </form>
   </div>
@@ -65,6 +76,12 @@
           hargaobat: {
             required: true,
           },
+          satuan: {
+            required: true,
+          },
+          ukuran: {
+            required: true,
+          }
         },
         messages: {
           namaobat: {
@@ -76,6 +93,12 @@
           hargaobat: {
             required: "Harga Obat is required.",
           },
+          satuan: {
+            required: "Satuan is required.",
+          },
+          ukuran: {
+            required: "Ukuran is required.",
+          }
         },
       })
     }

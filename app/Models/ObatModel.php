@@ -8,5 +8,5 @@ class ObatModel extends Model
 {
     protected $table = 'obat';
     protected $primaryKey = 'kodeobat';
-    protected $allowedFields = ['kodeobat', 'namaobat', 'tanggalkadaluarsa', 'hargaobat'];
+    protected $allowedFields = ['kodeobat', 'namaobat', 'tanggalkadaluarsa', 'hargaobat', 'satuan', 'ukuran'];
 }

@@ -19,20 +19,6 @@ class PasienMigration extends Migration
                 'constraint' => '150',
                 'null' => false,
             ],
-            'tgl_lahir' => [
-                'type' => 'DATETIME',
-                'null' => false,
-            ],
-            'gol_darah' => [
-                'type' => 'VARCHAR',
-                'constraint' => '3', // Menggunakan VARCHAR untuk gol_darah, panjang maksimum 3 karakter
-                'null' => true,
-            ],
-            'alergi' => [
-                'type' => 'VARCHAR',
-                'constraint' => '255',
-                'null' => true,
-            ],
             'alamat' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
@@ -42,6 +28,25 @@ class PasienMigration extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '15',
                 'null' => true,
+            ],
+            'jenis_kelamin' => [
+                'type' => 'VARCHAR',
+                'constraint' => '10',
+                'null' => false,
+            ],
+            'golongan_darah' => [
+                'type' => 'VARCHAR',
+                'constraint' => '3', // Menggunakan VARCHAR untuk gol_darah, panjang maksimum 3 karakter
+                'null' => true,
+            ],
+            'alergi' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => true,
+            ],            
+            'tanggal_lahir' => [
+                'type' => 'DATETIME',
+                'null' => false,
             ],
         ]);
 
