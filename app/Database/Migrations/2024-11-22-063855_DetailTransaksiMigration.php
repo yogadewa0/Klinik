@@ -15,7 +15,7 @@ class DetailTransaksiMigration extends Migration
                 'constraint' => 11,
                 'null'       => false,
             ],
-            'kode_obat' => [
+            'kodeobat' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 50,
                 'null'       => false,
@@ -28,10 +28,10 @@ class DetailTransaksiMigration extends Migration
         ]);
 
         // Menambahkan primary key gabungan
-        $this->forge->addKey(['kode_obat', 'id_transaksi'], true); // Jika perlu, bisa ditambahkan sebagai primary key gabungan
+        $this->forge->addKey(['kodeobat', 'id_transaksi'], true); // Jika perlu, bisa ditambahkan sebagai primary key gabungan
 
         // Menambahkan foreign key
-        $this->forge->addForeignKey('kode_obat', 'obat', 'kode_obat', 'CASCADE', 'CASCADE'); // Menambahkan foreign key untuk kode_obat
+        $this->forge->addForeignKey('kodeobat', 'obat', 'kodeobat', 'CASCADE', 'CASCADE'); // Menambahkan foreign key untuk kodeobat
         $this->forge->addForeignKey('id_transaksi', 'transaksi', 'id_transaksi', 'CASCADE', 'CASCADE'); // Menambahkan foreign key untuk id_transaksi
 
         // Membuat tabel detail_transaksi
