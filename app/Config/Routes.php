@@ -57,9 +57,9 @@ $routes->post('update-rekam_medis', 'Admin\RekamMedisController::update');
 $routes->get('delete-rekam_medis/(:segment)', 'Admin\RekamMedisController::delete/$1');
 
 //CRUD Transaksi
-$routes->get('transaksi-list', 'Admin\TransaksiController::index');
+$routes->get('transaksi-list', 'Admin\TransaksiController::index'); 
 $routes->get('transaksi-form', 'Admin\TransaksiController::create');
-$routes->post('submit-transaksi-form', 'Admin\TransaksiController::store');
+$routes->post('transaksi', 'Admin\TransaksiController::store'); 
 
 
 // Laporan Keuangan

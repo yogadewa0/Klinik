@@ -26,11 +26,11 @@
         <div class="d-flex justify-content-end">
             <a href="<?= site_url('/transaksi-form') ?>" class="btn btn-success mb-2">Tambah Transaksi</a>
         </div>
-        <?php
-        if(isset($_SESSION['msg'])){
-            echo $_SESSION['msg'];
-          }
-        ?>
+        <?php if (isset($_SESSION['msg'])): ?>
+            <div class="alert alert-info">
+                <?= $_SESSION['msg'] ?>
+            </div>
+        <?php endif; ?>
         <div class="mt-3">
             <table class="table table-striped table-hover" id="transaksi-list">
                 <thead>
@@ -47,12 +47,16 @@
                         <?php foreach ($transaksi as $item): ?>
                             <tr>
                                 <td><?php echo $item['id_transaksi']; ?></td>
-                                <td><?php echo $item['id_pasien']; ?></td>
-                                <td><?php echo $item['tgl_transaksi']; ?></td>
-                                <td><?php echo $item['biaya_periksa']; ?></td>
-                                <td><?php echo $item['id_user']; ?></td>
+                                <td><?php echo $item['nama_pasien']; ?></td>
+                                <td><?php echo $item['nama_user']; ?></td>
+                                <td><?= date('Y-m-d H:i:s', strtotime($item['tgl_transaksi'])); ?></td>
+                                <td><?= number_format($item['biaya_periksa'], 2, ',', '.'); ?></td>
                             </tr>
                         <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="5" class="text-center">Tidak ada data transaksi.</td>
+                        </tr>
                     <?php endif; ?>
                 </tbody>
             </table>
