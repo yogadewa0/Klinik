@@ -20,15 +20,21 @@ class ObatController extends BaseController
     // Insert data
     public function store() {
         $obatModel = new ObatModel();
+        $harga = $this->request->getVar('hargaobat');
+        if (!str_starts_with($harga, 'Rp')) {
+            $harga = 'Rp ' . $harga; 
+        }
         $data = [
             'kodeobat' => $this->request->getVar('kodeobat'),
-            'namaobat'  => $this->request->getVar('namaobat'),
+            'namaobat' => $this->request->getVar('namaobat'),
             'tanggalkadaluarsa' => $this->request->getVar('tanggalkadaluarsa'),
-            'hargaobat'  => $this->request->getVar('hargaobat')
+            'hargaobat' => $harga,
+            'satuan' => $this->request->getVar('satuan'),
+            'ukuran' => $this->request->getVar('ukuran')
         ];
         $obatModel->insert($data);
         return $this->response->redirect(site_url('/obat-list'));
-    }
+    }   
 
     // Show single obat
     public function singleObat($id = null){
@@ -45,11 +51,14 @@ class ObatController extends BaseController
             'kodeobat' => $this->request->getVar('kodeobat'),
             'namaobat'  => $this->request->getVar('namaobat'),
             'tanggalkadaluarsa' => $this->request->getVar('tanggalkadaluarsa'),
-            'hargaobat'  => $this->request->getVar('hargaobat')
+            'hargaobat'  => $this->request->getVar('hargaobat'),
+            'satuan' => $this->request->getVar('satuan'),
+            'ukuran' => $this->request->getVar('ukuran')
         ];
         $obatModel->update($id, $data);
         return $this->response->redirect(site_url('/obat-list'));
     }
+    
 
     // Delete obat
     public function delete($id = null){

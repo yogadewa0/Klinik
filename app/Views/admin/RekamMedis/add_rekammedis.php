@@ -24,11 +24,13 @@
     action="<?= site_url('/submit-rekam_medis-form') ?>">
       <div class="form-group">
         <label>Nama Pasien</label>
-        <input type="text" name="id_pasien" class="form-control">
+        <input type="text" name="nama_pasien" class="form-control">
+        <input type="hidden" name="id_pasien" class="form-control">
       </div>
       <div class="form-group">
         <label>Nama Mantri</label>
-        <input type="text" name="id_user" class="form-control">
+        <input type="text" name="nama_user" class="form-control">
+        <input type="hidden" name="id_user" class="form-control">
       </div>
       <div class="form-group">
         <label>Tanggal Kunjungan</label>
@@ -42,44 +44,90 @@
         <label>Penanganan</label>
         <textarea name="penanganan" class="form-control" rows="3"></textarea>
       </div>
+      <!-- Daftar Obat dengan Ikon Pensil -->
       <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block">Tambah</button>
+        <label>Daftar Obat 
+          <span class="edit-icon" onclick="openModal()" title="Tambah Obat">✏️</span>
+        </label>
+        <table class="table table-bordered" id="obatTable">
+          <thead>
+            <tr>
+              <th>Nama Obat</th>
+              <th>Anjuran</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
       </div>
+
       <div class="form-group">
-        <a href="<?= site_url('rekammedis-list') ?>" class="btn btn-danger btn-block">Kembali</a>
+        <button type="submit" class="btn btn-primary btn-block">Simpan</button>
       </div>
     </form>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods.min.js"></script>
+  <!-- Modal Pop-Up -->
+  <div id="modalDialog" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Tambah Obat</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="modalNamaObat">Nama Obat</label>
+            <select id="modalNamaObat" class="form-control">
+              <option value="Paracetamol">Paracetamol</option>
+              <option value="Amoxicillin">Amoxicillin</option>
+              <option value="Ibuprofen">Ibuprofen</option>
+              <option value="Antibiotik">Antibiotik</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="modalAnjuran">Anjuran</label>
+            <input type="text" id="modalAnjuran" class="form-control" placeholder="Contoh: 3x1 sehari">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+          <button type="button" class="btn btn-primary" onclick="saveObat()">Simpan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script Section -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
   <script>
-    if ($("#add_create").length > 0) {
-      $("#add_create").validate({
-        rules: {
-          id_pasien: {
-            required: true,
-          },
-          tgl_kunjungan: {
-            required: true,
-          },
-          id_user: {
-            required: true,
-          },
-        },
-        messages: {
-          id_pasien: {
-            required: "ID Pasien wajib diisi.",
-          },
-          tgl_kunjungan: {
-            required: "Tanggal kunjungan wajib diisi.",
-          },
-          id_user: {
-            required: "ID User wajib diisi.",
-          },
-        },
-      });
+    function openModal() {
+      // Reset input dalam modal saat dibuka
+      document.getElementById("modalNamaObat").value = "";
+      document.getElementById("modalAnjuran").value = "";
+      $('#modalDialog').modal('show'); // Tampilkan modal
+    }
+
+    function saveObat() {
+      const namaObat = document.getElementById("modalNamaObat").value;
+      const anjuran = document.getElementById("modalAnjuran").value;
+
+      if (namaObat && anjuran) {
+        const table = document.getElementById("obatTable").getElementsByTagName("tbody")[0];
+
+        // Tambahkan baris baru ke tabel
+        const newRow = table.insertRow();
+        newRow.insertCell(0).innerText = namaObat;
+        newRow.insertCell(1).innerText = anjuran;
+
+        // Tutup modal setelah menyimpan
+        $('#modalDialog').modal('hide');
+      } else {
+        alert("Harap isi Nama Obat dan Anjuran terlebih dahulu.");
+      }
     }
   </script>
 </body>

@@ -14,7 +14,7 @@ class DetailRekamMedisMigration extends Migration
                 'constraint' => 255,
                 'null'       => false,
             ],
-            'kode_obat' => [
+            'kodeobat' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 50,
                 'null'       => false,
@@ -27,10 +27,10 @@ class DetailRekamMedisMigration extends Migration
         ]);
 
         // Menambahkan primary key gabungan
-        $this->forge->addKey(['kode_obat', 'id_rekam_medis'], true); // Menetapkan kode_obat dan id_rekam_medis sebagai primary key gabungan
+        $this->forge->addKey(['kodeobat', 'id_rekam_medis'], true); // Menetapkan kodeobat dan id_rekam_medis sebagai primary key gabungan
 
         // Menambahkan foreign key
-        $this->forge->addForeignKey('kode_obat', 'obat', 'kode_obat', 'CASCADE', 'CASCADE'); // Menambahkan foreign key untuk kode_obat
+        $this->forge->addForeignKey('kodeobat', 'obat', 'kodeobat', 'CASCADE', 'CASCADE'); // Menambahkan foreign key untuk kodeobat
         $this->forge->addForeignKey('id_rekam_medis', 'rekam_medis', 'id_rekam_medis', 'CASCADE', 'CASCADE'); // Menambahkan foreign key untuk id_rekam_medis
 
         // Membuat tabel detail_rekam_medis

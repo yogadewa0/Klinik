@@ -9,12 +9,17 @@ class ObatMigration extends Migration
     public function up()
     {
         $this->forge->addField([
-            'nama_obat' => [
+            'kodeobat' => [
+                'type'       => 'VARCHAR',
+                'constraint' => 50,
+                'null'       => false,
+            ],
+            'namaobat' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 100,
                 'null'       => false,
             ],
-            'tanggal_kadaluarsa' => [
+            'tanggalkadaluarsa' => [
                 'type'       => 'DATETIME',
                 'null'       => false,
             ],
@@ -28,19 +33,16 @@ class ObatMigration extends Migration
                 'constraint' => 50,
                 'null'       => false,
             ],
-            'harga_obat' => [
-                'type'       => 'INT',
-                'null'       => false,
-                'unsigned'   => true,
-            ],
-            'kode_obat' => [
+            'hargaobat' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 50,
                 'null'       => false,
+                'unsigned'   => true,
             ],
+            
         ]);
 
-        $this->forge->addKey('kode_obat', true); // Menetapkan kode_obat sebagai primary key
+        $this->forge->addKey('kodeobat', true); // Menetapkan kode_obat sebagai primary key
         $this->forge->createTable('obat'); // Membuat tabel obat
     }
 

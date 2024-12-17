@@ -29,7 +29,7 @@
         <?php
         if(isset($_SESSION['msg'])){
             echo $_SESSION['msg'];
-          }
+        }
         ?>
       <div class="mt-3">
         <table class="table table-striped table-hover" id="obat-list">
@@ -39,6 +39,8 @@
                 <th>Nama Obat</th>
                 <th>Tanggal Kadaluarsa</th>
                 <th>Harga Obat</th>
+                <th>Ukuran</th>
+                <th>Satuan</th>
                 <th>Action</th>
               </tr>
           </thead>
@@ -50,6 +52,8 @@
                 <td><?php echo $item['namaobat']; ?></td>
                 <td><?php echo $item['tanggalkadaluarsa']; ?></td>
                 <td><?php echo $item['hargaobat']; ?></td>
+                <td><?php echo $item['ukuran']; ?></td>  
+                <td><?php echo $item['satuan']; ?></td> 
                 <td>
                 <a href="<?php echo base_url('edit-obat-view/'.$item['kodeobat']);?>" class="btn btn-sm">
                   <i class="fas fa-edit"></i>
@@ -68,7 +72,7 @@
   </div>
 
   <!-- Modal Konfirmasi Hapus -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -86,8 +90,8 @@
             </div>
         </div>
     </div>
-</div>
-  
+  </div>
+
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
@@ -95,9 +99,9 @@
       
     $(document).ready(function() {
       $('#obat-list').DataTable();
-        $('#deleteModal .btn-secondary, #deleteModal .close').click(function() {
-            $('#deleteModal').modal('hide');
-        });
+      $('#deleteModal .btn-secondary, #deleteModal .close').click(function() {
+          $('#deleteModal').modal('hide');
+      });
     });
 
     // Function to show the delete modal with the correct URL
