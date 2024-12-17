@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class UserModel extends Model
 {
     protected $table = 'akun';
-    // protected $primaryKey = 'id';
+    protected $primaryKey = 'id_user';
     protected $allowedFields = ['username', 'password'];
 
     public function getUser($username, $password)

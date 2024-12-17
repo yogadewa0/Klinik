@@ -24,10 +24,14 @@ class PasienMigration extends Migration
                 'constraint' => '255',
                 'null' => false,
             ],
-            'no_telp' => [
+            'notelpon' => [
                 'type' => 'VARCHAR',
                 'constraint' => '15',
                 'null' => true,
+            ],
+            'tanggal_lahir' => [
+                'type' => 'DATETIME',
+                'null' => false,
             ],
             'jenis_kelamin' => [
                 'type' => 'VARCHAR',
@@ -44,10 +48,7 @@ class PasienMigration extends Migration
                 'constraint' => '255',
                 'null' => true,
             ],            
-            'tanggal_lahir' => [
-                'type' => 'DATETIME',
-                'null' => false,
-            ],
+            
         ]);
 
         $this->forge->addKey('id_pasien', true); // Set id_pasien sebagai primary key
