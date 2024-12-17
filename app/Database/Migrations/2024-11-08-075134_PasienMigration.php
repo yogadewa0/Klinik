@@ -24,10 +24,14 @@ class PasienMigration extends Migration
                 'constraint' => '255',
                 'null' => false,
             ],
-            'no_telp' => [
+            'notelpon' => [
                 'type' => 'VARCHAR',
                 'constraint' => '15',
                 'null' => true,
+            ],            
+            'tanggal_lahir' => [
+                'type' => 'DATETIME',
+                'null' => false,
             ],
             'jenis_kelamin' => [
                 'type' => 'VARCHAR',
@@ -43,10 +47,6 @@ class PasienMigration extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '255',
                 'null' => true,
-            ],            
-            'tanggal_lahir' => [
-                'type' => 'DATETIME',
-                'null' => false,
             ],
         ]);
 

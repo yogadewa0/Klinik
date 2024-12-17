@@ -29,21 +29,6 @@ class UserMigration extends Migration
                 'constraint'     => 255,
                 'null'           => false, // Jika password wajib diisi
             ],
-            'nama'          => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 100,
-                'null'           => false,
-            ],
-            'alamat'        => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 255,
-                'null'           => false, // Jika alamat wajib diisi
-            ],
-            'no_telp'      => [
-                'type'           => 'VARCHAR',
-                'constraint'     => 15,
-                'null'           => false, // Jika no_telp wajib diisi
-            ],
         ]);
 
         $this->forge->addKey('id_user', true); // Menetapkan id_user sebagai primary key

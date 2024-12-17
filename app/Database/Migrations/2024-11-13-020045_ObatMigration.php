@@ -23,6 +23,12 @@ class ObatMigration extends Migration
                 'type'       => 'DATETIME',
                 'null'       => false,
             ],
+            'hargaobat' => [
+                'type'       => 'VARCHAR',
+                'constraint' => 50,
+                'null'       => false,
+                'unsigned'   => true,
+            ],
             'satuan' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 20,
@@ -32,12 +38,6 @@ class ObatMigration extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => 50,
                 'null'       => false,
-            ],
-            'hargaobat' => [
-                'type'       => 'VARCHAR',
-                'constraint' => 50,
-                'null'       => false,
-                'unsigned'   => true,
             ],
             
         ]);
