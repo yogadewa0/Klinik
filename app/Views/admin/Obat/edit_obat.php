@@ -30,7 +30,7 @@
 
       <div class="form-group">
         <label>Tanggal Kadaluarsa</label>
-        <input type="date" name="tanggalkadaluarsa" class="form-control" value="<?php echo $obat_obj['tanggalkadaluarsa']; ?>">
+        <input type="date" name="tanggalkadaluarsa" class="form-control" value="<?= date('Y-m-d', strtotime($obat_obj['tanggalkadaluarsa'])); ?>" required>
       </div>
 
       <div class="form-group">

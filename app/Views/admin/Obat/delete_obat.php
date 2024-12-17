@@ -50,7 +50,7 @@
               <tr>
                 <td><?php echo $item['kodeobat']; ?></td>
                 <td><?php echo $item['namaobat']; ?></td>
-                <td><?php echo $item['tanggalkadaluarsa']; ?></td>
+                <td><?php echo date('d-m-Y ', strtotime($item['tanggalkadaluarsa'])); ?></td>
                 <td><?php echo $item['hargaobat']; ?></td>
                 <td><?php echo $item['ukuran']; ?></td>  
                 <td><?php echo $item['satuan']; ?></td> 
