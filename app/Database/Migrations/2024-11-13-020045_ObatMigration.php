@@ -37,7 +37,6 @@ class ObatMigration extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => 50,
                 'null'       => false,
-                // 'unsigned'   => true,
             ],
             
         ]);
