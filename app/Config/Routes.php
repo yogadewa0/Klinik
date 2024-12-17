@@ -65,3 +65,11 @@ $routes->post('transaksi', 'Admin\TransaksiController::store');
 // Laporan Keuangan
 $routes->get('pendapatan', 'Admin\LaporanController::index');
 $routes->get('pengeluaran', 'Admin\LaporanController::pengeluaran');
+
+$routes->get('user-list', 'Admin\UserController::index');
+$routes->get('user-add-form', 'Admin\UserController::create');
+$routes->post('user-store', 'Admin\UserController::store');
+$routes->get('user-edit/(:any)', 'Admin\UserController::singleUser/$1');
+$routes->post('user-update', 'Admin\UserController::update');
+$routes->get('user-delete/(:any)', 'Admin\UserController::delete/$1');
+$routes->get('user-profile/(:any)', 'Admin\UserController::profile/$1'); // Menambahkan rute untuk menampilkan profil pengguna
