@@ -37,12 +37,12 @@ class ObatMigration extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => 50,
                 'null'       => false,
-                'unsigned'   => true,
+                // 'unsigned'   => true,
             ],
             
         ]);
 
-        $this->forge->addKey('kodeobat', true); // Menetapkan kode_obat sebagai primary key
+        $this->forge->addKey('kodeobat', true, 'pk_obat');
         $this->forge->createTable('obat'); // Membuat tabel obat
     }
 
