@@ -19,20 +19,45 @@ class PasienController extends BaseController
     }
  
     
-    public function store() {
+    // public function store() {
+    //     $userModel = new PasienModel();
+    //     $data = [
+    //         'nama' => $this->request->getVar('nama'),
+    //         'alamat'  => $this->request->getVar('alamat'),
+    //         'notelpon' => $this->request->getVar('notelpon'),
+    //         'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
+    //         'jeniskelamin' => $this->request->getVar('jeniskelamin'),
+    //         'golongan_darah' => $this->request->getVar('golongan_darah'),
+    //         'alergi' => $this->request->getVar('alergi')
+    //     ];
+    //     $userModel->insert($data);
+    //     return $this->response->redirect(site_url('/users-list'));
+    // }
+
+    public function store()
+    {
         $userModel = new PasienModel();
+
+        // Panggil fungsi generateId untuk mendapatkan ID baru
+        $id_pasien = $userModel->generateId();
+
         $data = [
+            'id_pasien' => $id_pasien, // Tambahkan id_pasien di sini
             'nama' => $this->request->getVar('nama'),
-            'alamat'  => $this->request->getVar('alamat'),
+            'alamat' => $this->request->getVar('alamat'),
             'notelpon' => $this->request->getVar('notelpon'),
             'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
             'jeniskelamin' => $this->request->getVar('jeniskelamin'),
             'golongan_darah' => $this->request->getVar('golongan_darah'),
             'alergi' => $this->request->getVar('alergi')
         ];
+
+        // Simpan data ke database
         $userModel->insert($data);
+
         return $this->response->redirect(site_url('/users-list'));
     }
+
     
     // show single user
     public function singleUser($id_pasien = null){
