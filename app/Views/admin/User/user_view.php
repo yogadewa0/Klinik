@@ -1,150 +1,127 @@
-<pre>
-    <?php print_r($user); ?>
-</pre>
 <?= $this->extend('admin/layout/template') ?>
 <?= $this->section('content') ?>
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile Page</title>
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Pengguna</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
     <style>
-      body {
-        background-color: #f8f9fa;
-      }
-      .profile-container {
-        background-color: #fff;
-        border-radius: 10px;
-        padding: 30px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-      .profile-header {
-        text-align: center;
-        margin-bottom: 30px;
-      }
-      .profile-header img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        margin-bottom: 10px;
-      }
-      .btn-container {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        margin-top: 20px;
-      }
-      .btn-custom {
-        background-color: #00796b;
-        color: #fff;
-        padding: 8px 20px;
-        border: none;
-        border-radius: 8px;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-      }
-      .btn-custom:hover {
-        background-color: #005f56;
-      }
+        .content-container {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
     </style>
-  </head>
-  <body>
-  <div class="container mt-5">
-    <div class="profile-container">
-        <!-- Profile Header -->
-        <div class="profile-header">
-            <img
-                src="https://cdn-icons-png.flaticon.com/512/4825/4825038.png"
-                alt="Profile Image"
-                class="rounded-circle"
-                width="100"
-                height="100"
-            />
-            <h4>Profile Pengguna</h4>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="content-container">
+        <!-- Tombol Tambah Akun -->
+        <div class="d-flex justify-content-end mb-2">
+            <a href="<?= site_url('/user-add-form') ?>" class="btn btn-success">Tambah Akun</a>
         </div>
-
-        <!-- Profile Form -->
-        <form>
-          <div class="mb-3">
-              <label for="name" class="form-label">Nama</label>
-              <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  value="<?= isset($user['nama']) ? esc($user['nama']) : '' ?>"
-                  readonly
-              />
-          </div>
-
-          <div class="mb-3">
-              <label for="email" class="form-label">Username</label>
-              <input
-                  type="text"
-                  class="form-control"
-                  id="email"
-                  value="<?= isset($user['username']) ? esc($user['username']) : '' ?>"
-                  readonly
-              />
-          </div>
-
-          <div class="mb-3">
-              <label for="address" class="form-label">Alamat</label>
-              <input
-                  type="text"
-                  class="form-control"
-                  id="address"
-                  value="<?= isset($user['alamat']) ? esc($user['alamat']) : '' ?>"
-                  readonly
-              />
-          </div>
-
-          <div class="mb-3">
-              <label for="phone" class="form-label">No Handphone</label>
-              <input
-                  type="text"
-                  class="form-control"
-                  id="phone"
-                  value="<?= isset($user['no_telp']) ? esc($user['no_telp']) : '' ?>"
-                  readonly
-              />
-          </div>
-      </form>
-
-            <!-- Buttons -->
-            <div class="btn-container">
-                <?php if (isset($user['id_user'])): ?>
-                    <a href="<?= site_url('/user-edit/' . $user['id_user']) ?>" class="btn btn-custom">Edit Profile</a>
-                <?php else: ?>
-                    <p class="text-danger">Data pengguna tidak ditemukan.</p>
-                <?php endif; ?>
-                <a href="<?= site_url('/user-add-form') ?>" class="btn btn-custom">Tambah Akun</a>
+        
+        <!-- Notifikasi Pesan -->
+        <?php if(session()->getFlashdata('msg')): ?>
+            <div class="alert alert-success">
+                <?= session()->getFlashdata('msg'); ?>
             </div>
-        </form>
+        <?php endif; ?>
+        
+        <!-- Tabel Data Pengguna -->
+        <table class="table table-striped table-hover" id="user-list">
+            <thead>
+                <tr>
+                    <th>ID User</th>
+                    <th>Role</th>
+                    <th>Username</th>
+                    <th>Nama</th>
+                    <th>Alamat</th>
+                    <th>No Telepon</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (!empty($user) && is_array($user)): ?>
+                    <?php foreach ($user as $users): ?>
+                        <tr>
+                            <td><?= esc($users['id_user']) ?></td>
+                            <td><?= esc($users['role']) ?></td>
+                            <td><?= esc($users['username']) ?></td>
+                            <td><?= esc($users['nama']) ?></td>
+                            <td><?= esc($users['alamat']) ?></td>
+                            <td><?= esc($users['no_telp']) ?></td>
+                            <td>
+                                <a href="<?= site_url('user-edit/' . $users['id_user']) ?>" class="btn btn-warning btn-sm">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                <button 
+                                    class="btn btn-danger btn-sm delete-btn" 
+                                    data-id="<?= $users['id_user'] ?>" 
+                                    data-toggle="modal" 
+                                    data-target="#deleteModal">
+                                    <i class="fas fa-trash"></i> Hapus
+                                </button>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="7" class="text-center">Data pengguna tidak ditemukan.</td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
     </div>
 </div>
 
+<!-- Modal Konfirmasi Hapus -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Konfirmasi Hapus</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Anda yakin ingin menghapus data ini?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <a href="#" id="confirmDeleteBtn" class="btn btn-danger">Hapus</a>
+            </div>
+        </div>
+    </div>
+</div>
 
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Inisialisasi DataTable
+        $('#user-list').DataTable();
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-    <script>
-      $(document).ready(function () {
-        $('#akun-list').DataTable();
-      });
-    </script>
-  </body>
+        // Event handler untuk tombol hapus
+        const deleteButtons = document.querySelectorAll('.delete-btn');
+        const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const userId = this.getAttribute('data-id');
+                const deleteUrl = `<?= site_url('user-delete/') ?>${userId}`;
+                confirmDeleteBtn.setAttribute('href', deleteUrl);
+            });
+        });
+    });
+</script>
+</body>
 </html>
-
-<?= $this->endSection(); ?>
+<?= $this->endSection() ?>
