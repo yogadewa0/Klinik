@@ -64,8 +64,15 @@ $routes->post('submit-transaksi-form', 'Admin\RekamMedisController::store');
 
 
 // Laporan Keuangan
-$routes->get('pendapatan', 'Admin\LaporanController::index');
-$routes->get('pengeluaran', 'Admin\LaporanController::pengeluaran');
+// $routes->get('pendapatan', 'Admin\LaporanController::index');
+$routes->get('/pendapatan', 'Admin\LaporanPemasukanController::index');
+$routes->post('/laporan-pemasukan/fetch', 'Admin\LaporanPemasukanController::fetchData');
+
+// $routes->get('pengeluaran', 'Admin\LaporanController::pengeluaran');
+$routes->get('/pengeluaran', 'Admin\LaporanPengeluaranController::index');
+$routes->post('/laporan-pengeluaran/fetch', 'Admin\LaporanPengeluaranController::fetchData');
+
+
 
 $routes->get('user-list', 'Admin\UserController::index');
 $routes->get('user-add-form', 'Admin\UserController::create');
