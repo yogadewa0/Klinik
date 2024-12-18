@@ -19,6 +19,7 @@ $routes->get('template', 'Admin\DashboardController::template');
 $routes->get('login', 'Admin\LoginController::index');
 $routes->post('login/authenticate', 'Admin\LoginController::authenticate');
 $routes->get('dashboard', 'Admin\DashboardController::index');
+$routes->get('logout', 'Admin\LoginController::logout');
 
 // CRUD Pasien
 $routes->get('users-list', 'Admin\PasienController::index');

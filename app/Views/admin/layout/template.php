@@ -115,7 +115,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Profile</a></li>
                                 <li><a class="dropdown-item" href="pengguna">Settings</a></li>
-                                <li><a class="dropdown-item" href="/login">Logout</a></li>
+                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
                             </ul>
                         </li>
                     </ul>

@@ -34,4 +34,17 @@ class User_Model extends Model
 
         return 'U' . $nextId; // Format: U001, U002, dst.
     }
+
+    public function getUser($username, $password)
+    {
+        $user = $this->where('username', $username)->first();
+        
+        // Jika pengguna ditemukan, verifikasi password
+        if ($user && password_verify($password, $user['password'])) {
+            return $user;
+        }
+        
+        return null; // Jika password salah
+    }
+
 }
