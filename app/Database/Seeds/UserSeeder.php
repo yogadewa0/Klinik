@@ -9,18 +9,36 @@ class UserSeeder extends Seeder
     public function run()
     {
         $data = [
-            'role' => 'Mantri',
-            'username' => 'mantri',
-            'password' => '1234',
-            'nama' => 'Mino',
-            'alamat' => 'Paingan',
-            'no_telp' => '081256981001'
+            [
+                'id_user'   => 'U001',
+                'role'      => 'admin',
+                'username'  => 'admin1',
+                'password'  => password_hash('password123', PASSWORD_DEFAULT), // Hash password
+                'nama'      => 'Admin Utama',
+                'alamat'    => 'Jl. Sudirman No. 1',
+                'no_telp'   => '081234567890',
+            ],
+            [
+                'id_user'   => 'U002',
+                'role'      => 'dokter',
+                'username'  => 'dokter1',
+                'password'  => password_hash('password123', PASSWORD_DEFAULT),
+                'nama'      => 'Dokter Andi',
+                'alamat'    => 'Jl. Ahmad Yani No. 2',
+                'no_telp'   => '081234567891',
+            ],
+            [
+                'id_user'   => 'U003',
+                'role'      => 'mantri',
+                'username'  => 'mantri1',
+                'password'  => password_hash('password123', PASSWORD_DEFAULT),
+                'nama'      => 'Mantri Budi',
+                'alamat'    => 'Jl. Merpati No. 3',
+                'no_telp'   => '081234567892',
+            ],
         ];
 
-        //Query tambah user
-        $this->db->query('INSERT INTO user(role, username, password, nama, alamat, no_telp) VALUES(:role:, :username:, :password:, :nama:, :alamat:, :no_telp:', $data);
-
-        //Masukkan data ke tabel user
-        $this->db->table('user')->insert($data);
+        // Insert data menggunakan query builder
+        $this->db->table('user')->insertBatch($data);
     }
 }

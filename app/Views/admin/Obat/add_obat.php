@@ -134,7 +134,7 @@
           },
           ukuran: {
             required: true,
-            pattern: /^[0-9]+\s*(g|mg)$/, // Validasi ukuran: angka diikuti g atau mg
+            pattern: /^[0-9]+\s*(g|mg|ml)$/, // Validasi ukuran: angka diikuti g atau mg
           }
         },
         messages: {
