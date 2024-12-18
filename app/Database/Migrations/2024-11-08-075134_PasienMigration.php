@@ -33,7 +33,7 @@ class PasienMigration extends Migration
                 'type' => 'DATETIME',
                 'null' => false,
             ],
-            'jenis_kelamin' => [
+            'jeniskelamin' => [
                 'type' => 'VARCHAR',
                 'constraint' => '10',
                 'null' => false,

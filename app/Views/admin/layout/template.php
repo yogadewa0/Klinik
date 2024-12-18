@@ -52,7 +52,7 @@
                 </div>
 
                 <div class="sidebar-item">
-                    <a href="#" class="sidebar-link" data-title="Data Transaksi">
+                    <a href="transaksi-list" class="sidebar-link" data-title="Data Transaksi">
                         <img src="/asset-admin/img/transaksi.png" alt="Store Icon" class="iconmenu">
                         Data Transaksi
                     </a>
@@ -115,7 +115,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Profile</a></li>
                                 <li><a class="dropdown-item" href="pengguna">Settings</a></li>
-                                <li><a class="dropdown-item" href="/login">Logout</a></li>
+                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
                             </ul>
                         </li>
                     </ul>

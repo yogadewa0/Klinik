@@ -8,9 +8,17 @@ class UserController extends BaseController
     // Menampilkan halaman list user
     public function index() {
         $userModel = new User_Model();
-        $data['user'] = $userModel->orderBy('id_user', 'DESC')->findAll();
+    
+        // Ambil semua data pengguna
+        $data['user'] = $userModel->findAll();
+    
+        // Debugging untuk memastikan data ada
+        // echo '<pre>'; print_r($data['user']); echo '</pre>'; die();
+    
+        // Kirim data ke view
         return view('admin/User/user_view', $data);
     }
+    
 
     // Menampilkan form untuk menambahkan pengguna
     public function create() {
@@ -20,23 +28,30 @@ class UserController extends BaseController
     // Menyimpan data pengguna
     public function store() {
         $userModel = new User_Model();
+    
+        // Generate ID User
+        $id_user = $userModel->generateId();
+    
+        // Simpan data ke database
         $data = [
-            'id_user'  => $this->request->getVar('id_user'),
-            'role'     => $this->request->getVar('role'),
+            'id_user' => $id_user,
+            'role' => $this->request->getVar('role'),
             'username' => $this->request->getVar('username'),
             'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-            'nama'     => $this->request->getVar('nama'),
-            'alamat'   => $this->request->getVar('alamat'),
-            'no_telp'  => $this->request->getVar('no_telp')
+            'nama' => $this->request->getVar('nama'),
+            'alamat' => $this->request->getVar('alamat'),
+            'no_telp' => $this->request->getVar('no_telp')
         ];
         $userModel->insert($data);
-        return $this->response->redirect(site_url('user-list')); // Redirect ke daftar pengguna setelah data disimpan
-    }
+    
+        // Redirect ke user-list
+        return redirect()->to('/user-list');
+    }    
 
-    // Method untuk menampilkan profil pengguna
+    // Menampilkan profil pengguna
     public function profile($id = null) {
         $userModel = new User_Model();
-    
+
         // Ambil data pengguna berdasarkan ID
         $data['user'] = $userModel->where('id_user', $id)->first();
     
@@ -84,3 +99,4 @@ class UserController extends BaseController
         return $this->response->redirect(site_url('user-list')); // Redirect ke daftar pengguna setelah dihapus
     }
 }
+

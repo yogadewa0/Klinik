@@ -44,7 +44,7 @@
       <!-- Daftar Obat dengan Ikon Pensil -->
       <div class="form-group">
         <label>Daftar Obat 
-          <span class="edit-icon" onclick="openModal()" title="Tambah Obat">✏️</span>
+          <span class="edit-icon" onclick="openModal()" title="Tambah Obat" style="cursor: pointer;">✏️</span>
         </label>
         <table class="table table-bordered" id="obatTable">
           <thead>
@@ -63,8 +63,8 @@
       <div class="form-group">
         <a href="<?= site_url('transaksi-list') ?>" class="btn btn-danger btn-block">Kembali</a>
       </div>
-      </form>
-      </div>
+    </form>
+  </div>
 
 <!-- Modal Pop-Up -->
 <div id="modalDialog" class="modal fade" tabindex="-1" role="dialog">
@@ -83,12 +83,11 @@
             <option value="Paracetamol">Paracetamol</option>
             <option value="Amoxicillin">Amoxicillin</option>
             <option value="Ibuprofen">Ibuprofen</option>
-            <option value="Antibiotik">Omeprazole</option>
-            <option value="Antibiotik">Amlodipine</option>
-            <option value="Antibiotik">Haloperidol</option>
-            <option value="Antibiotik">Insulin</option>
-            <option value="Antibiotik">Metformin</option>
-
+            <option value="Omeprazole">Omeprazole</option>
+            <option value="Amlodipine">Amlodipine</option>
+            <option value="Haloperidol">Haloperidol</option>
+            <option value="Insulin">Insulin</option>
+            <option value="Metformin">Metformin</option>
           </select>
         </div>
         <div class="form-group">
@@ -104,37 +103,35 @@
   </div>
 </div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods.min.js"></script>
-
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script>
-  function openModal() {
-    // Reset input dalam modal saat dibuka
-    document.getElementById("modalNamaObat").value = "";
-    document.getElementById("modalJumlahObat").value = ""; // Reset jumlah obat
-    $('#modalDialog').modal('show'); // Tampilkan modal
-  }
-
-  function saveObat() {
-    const namaObat = document.getElementById("modalNamaObat").value;
-    const jumlahObat = document.getElementById("modalJumlahObat").value; // Ambil jumlah obat
-
-    if (namaObat && jumlahObat) {
-      const table = document.getElementById("obatTable").getElementsByTagName("tbody")[0];
-
-      // Tambahkan baris baru ke tabel
-      const newRow = table.insertRow();
-      newRow.insertCell(0).innerText = namaObat;
-      newRow.insertCell(1).innerText = jumlahObat; // Tampilkan jumlah obat
-
-      // Tutup modal setelah menyimpan
-      $('#modalDialog').modal('hide');
-    } else {
-      alert("Harap isi Nama Obat dan Jumlah Obat terlebih dahulu.");
+    function openModal() {
+      // Reset input dalam modal saat dibuka
+      document.getElementById("modalNamaObat").value = "";
+      document.getElementById("modalJumlahObat").value = ""; // Reset jumlah obat
+      $('#modalDialog').modal('show'); // Tampilkan modal
     }
-  }
-</script>
+
+    function saveObat() {
+      const namaObat = document.getElementById("modalNamaObat").value;
+      const jumlahObat = document.getElementById("modalJumlahObat").value; // Ambil jumlah obat
+
+      if (namaObat && jumlahObat) {
+        const table = document.getElementById("obatTable").getElementsByTagName("tbody")[0];
+
+        // Tambahkan baris baru ke tabel
+        const newRow = table.insertRow();
+        newRow.insertCell(0).innerText = namaObat;
+        newRow.insertCell(1).innerText = jumlahObat; // Tampilkan jumlah obat
+
+        // Tutup modal setelah menyimpan
+        $('#modalDialog').modal('hide');
+      } else {
+        alert("Harap isi Nama Obat dan Jumlah Obat terlebih dahulu.");
+      }
+    }
+  </script>
 </body>
 
 </html>

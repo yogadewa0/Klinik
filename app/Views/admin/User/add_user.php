@@ -20,10 +20,10 @@
     <h4 class="text-center mb-4">Form Tambah User</h4>
     <form method="post" id="add_user_form" name="add_user_form" action="<?= site_url('/user-store') ?>">
         <!-- ID User -->
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="id_user">ID User</label>
             <input type="text" name="id_user" id="id_user" class="form-control" placeholder="Masukkan ID User" required>
-        </div>
+        </div> -->
 
         <!-- Role Dropdown -->
         <div class="form-group">

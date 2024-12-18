@@ -37,6 +37,11 @@ $routes->get('delete/(:any)', 'PasienController::delete/$1');
 
 // route admin dashboard
 // $routes->get('dashboard', 'Admin\DashboardController::index');
+$routes->get('template', 'Admin\DashboardController::template');
+$routes->get('login', 'Admin\LoginController::index');
+$routes->post('login/authenticate', 'Admin\LoginController::authenticate');
+$routes->get('dashboard', 'Admin\DashboardController::index');
+$routes->get('logout', 'Admin\LoginController::logout');
 
 // CRUD Pasien
 // $routes->get('users-list', 'Admin\PasienController::index');
@@ -74,20 +79,27 @@ $routes->get('delete/(:any)', 'PasienController::delete/$1');
 // $routes->post('update-rekam_medis', 'Admin\RekamMedisController::update');
 // $routes->get('delete-rekam_medis/(:segment)', 'Admin\RekamMedisController::delete/$1');
 
-// CRUD Transaksi
-// $routes->get('transaksi-list', 'Admin\TransaksiController::index'); 
-// $routes->get('transaksi-form', 'Admin\TransaksiController::create');
-// $routes->post('transaksi', 'Admin\TransaksiController::store'); 
+//CRUD Transaksi
+$routes->get('transaksi-list', 'Admin\TransaksiController::index'); 
+$routes->get('transaksi-form', 'Admin\TransaksiController::create');
+$routes->post('submit-transaksi-form', 'Admin\RekamMedisController::store');
 
 
 // Laporan Keuangan
 // $routes->get('pendapatan', 'Admin\LaporanController::index');
-// $routes->get('pengeluaran', 'Admin\LaporanController::pengeluaran');
+$routes->get('/pendapatan', 'Admin\LaporanPemasukanController::index');
+$routes->post('/laporan-pemasukan/fetch', 'Admin\LaporanPemasukanController::fetchData');
 
-// $routes->get('user-list', 'Admin\UserController::index');
-// $routes->get('user-add-form', 'Admin\UserController::create');
-// $routes->post('user-store', 'Admin\UserController::store');
-// $routes->get('user-edit/(:any)', 'Admin\UserController::singleUser/$1');
-// $routes->post('user-update', 'Admin\UserController::update');
-// $routes->get('user-delete/(:any)', 'Admin\UserController::delete/$1');
-// $routes->get('user-profile/(:any)', 'Admin\UserController::profile/$1'); // Menambahkan rute untuk menampilkan profil pengguna
+// $routes->get('pengeluaran', 'Admin\LaporanController::pengeluaran');
+$routes->get('/pengeluaran', 'Admin\LaporanPengeluaranController::index');
+$routes->post('/laporan-pengeluaran/fetch', 'Admin\LaporanPengeluaranController::fetchData');
+
+
+
+$routes->get('user-list', 'Admin\UserController::index');
+$routes->get('user-add-form', 'Admin\UserController::create');
+$routes->post('user-store', 'Admin\UserController::store');
+$routes->get('user-edit/(:any)', 'Admin\UserController::singleUser/$1');
+$routes->post('user-update', 'Admin\UserController::update');
+$routes->get('user-delete/(:any)', 'Admin\UserController::delete/$1');
+$routes->get('user-profile/(:any)', 'Admin\UserController::profile/$1'); // Menambahkan rute untuk menampilkan profil pengguna
