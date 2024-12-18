@@ -21,7 +21,7 @@
 <body>
 <div class="container mt-5">
     <form method="post" id="update_user" name="update_user" action="<?= site_url('/update') ?>">
-        <input type="hidden" name="id" value="<?php echo $user_obj['id']; ?>">
+        <input type="hidden" name="id_pasien" value="<?php echo $user_obj['id_pasien']; ?>">
 
         <!-- Nama -->
         <div class="form-group">
@@ -38,7 +38,7 @@
         <!-- No Telpon -->
         <div class="form-group">
             <label>No Telpon</label>
-            <input type="text" name="notelpon" class="form-control" value="<?php echo $user_obj['notelpon']; ?>" required>
+            <input type="text" name="no_telp" class="form-control" value="<?php echo $user_obj['no_telp']; ?>" required>
         </div>
 
         <!-- Tanggal Lahir -->
@@ -52,11 +52,11 @@
         <div class="form-group">
             <label>Jenis Kelamin</label><br>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="jeniskelamin" value="Laki-laki" <?php if($user_obj['jeniskelamin'] == 'Laki-laki') echo 'checked'; ?> required>
+                <input class="form-check-input" type="radio" name="jenis_kelamin" value="Laki-laki" <?php if($user_obj['jenis_kelamin'] == 'Laki-laki') echo 'checked'; ?> required>
                 <label class="form-check-label" for="laki-laki">Laki-laki</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="jeniskelamin" value="Perempuan" <?php if($user_obj['jeniskelamin'] == 'Perempuan') echo 'checked'; ?> required>
+                <input class="form-check-input" type="radio" name="jenis_kelamin" value="Perempuan" <?php if($user_obj['jenis_kelamin'] == 'Perempuan') echo 'checked'; ?> required>
                 <label class="form-check-label" for="perempuan">Perempuan</label>
             </div>
         </div>

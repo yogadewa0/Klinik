@@ -75,7 +75,7 @@
                 </div>
 
                 <div class="sidebar-item">
-                    <a href="user-profile/1" class="sidebar-link" data-title="User">
+                    <a href="user-list" class="sidebar-link" data-title="User">
                         <img src="/asset-admin/img/pengaturan.png" alt="Chat Icon" class="iconmenu">
                         User
                     </a>

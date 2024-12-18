@@ -36,7 +36,7 @@
         <!-- No Telpon -->
         <div class="form-group">
             <label>No Telpon</label>
-            <input type="text" name="notelpon" class="form-control" required>
+            <input type="text" name="no_telp" class="form-control" required>
         </div>
 
         <!-- Tanggal Lahir -->
@@ -50,12 +50,12 @@
         <div class="form-group">
             <label>Jenis Kelamin</label><br>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="jeniskelamin" value="Laki-laki" required>
-                <label class="form-check-label" for="laki-laki">Laki-laki</label>
+                <input class="form-check-input" type="radio" name="jenis_kelamin" value="Laki-laki" required>
+                <label class="form-check-label" for="Laki-laki">Laki-laki</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="jeniskelamin" value="Perempuan" required>
-                <label class="form-check-label" for="perempuan">Perempuan</label>
+                <input class="form-check-input" type="radio" name="jenis_kelamin" value="Perempuan" required>
+                <label class="form-check-label" for="Perempuan">Perempuan</label>
             </div>
         </div>
 
