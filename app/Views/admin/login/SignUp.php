@@ -28,7 +28,7 @@
                     Republik <br> Mantri
                 </label>
             </div>
-            <form action="/login/authenticate" method="post">
+            <form method="post">
                 <div class="input-group">
                     <input type="text" id="username" name="username" 
                            placeholder="Username" 
@@ -38,17 +38,12 @@
                     <input type="password" id="password" name="password" 
                            placeholder="Password">
                 </div>
-                <input type="submit" class="login-btn" value="Login">
+                <button type="submit" class="login-btn">Login</button>
             </form>            
         </div>
     </div>
 
     <script>
-        // Check if there's an error message in the session
-        <?php if (session()->getFlashdata('error')): ?>
-            showModal();
-        <?php endif; ?>
-
         function showModal() {
             document.getElementById('errorModal').style.display = 'block';
         }
@@ -57,6 +52,11 @@
             document.getElementById('errorModal').style.display = 'none';
         }
 
+        // Check if there's an error message in the session
+        <?php if (session()->getFlashdata('error')): ?>
+            showModal();
+        <?php endif; ?>
+
         // Close modal when clicking outside of it
         window.onclick = function(event) {
             var modal = document.getElementById('errorModal');
@@ -64,15 +64,6 @@
                 closeModal();
             }
         }
-
-        // Preserve form data after failed login attempt
-        document.addEventListener('DOMContentLoaded', function() {
-            const username = "<?= old('username') ?>";
-            if (username) {
-                document.getElementById('username').value = username;
-                document.getElementById('password').focus();
-            }
-        });
     </script>
 </body>
 </html>

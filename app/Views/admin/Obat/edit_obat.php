@@ -35,7 +35,7 @@
 
       <div class="form-group">
         <label>Harga Obat</label>
-        <input type="text" name="hargaobat" class="form-control" value="<?php echo $obat_obj['hargaobat']; ?>">
+        <input type="text" name="hargaobat" class="form-control" value="<?php echo $obat_obj['harga']; ?>">
       </div>
 
       
@@ -73,7 +73,7 @@
           tanggalkadaluarsa: {
             required: true,
           },
-          hargaobat: {
+          harga: {
             required: true,
           },
           satuan: {
@@ -90,7 +90,7 @@
           tanggalkadaluarsa: {
             required: "Tanggal Kadaluarsa is required.",
           },
-          hargaobat: {
+          harga: {
             required: "Harga Obat is required.",
           },
           satuan: {

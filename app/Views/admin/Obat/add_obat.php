@@ -52,7 +52,7 @@
       <div class="form-group position-relative">
         <label>Harga Obat</label>
         <!-- <span class="rp-prefix">Rp</span> -->
-        <input type="text" id="hargaobat" name="hargaobat" class="form-control input-rp" placeholder="Masukkan harga" autocomplete="off">
+        <input type="text" id="harga" name="harga" class="form-control input-rp" placeholder="Masukkan harga" autocomplete="off">
       </div>
 
       <!-- Input untuk Ukuran -->
@@ -126,7 +126,7 @@
           tanggalkadaluarsa: {
             required: true,
           },
-          hargaobat: {
+          harga: {
             required: true,
           },
           satuan: {

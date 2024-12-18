@@ -52,9 +52,9 @@
                                 <td><?php echo $user['id_pasien']; ?></td>
                                 <td><?php echo $user['nama']; ?></td>
                                 <td><?php echo $user['alamat']; ?></td>
-                                <td><?php echo $user['notelpon']; ?></td>
+                                <td><?php echo $user['no_telp']; ?></td>
                                 <td><?php echo date('d-m-Y ', strtotime($user['tanggal_lahir'])); ?></td>
-                                <td><?php echo $user['jeniskelamin']; ?></td>
+                                <td><?php echo $user['jenis_kelamin']; ?></td>
                                 <td><?php echo $user['golongan_darah']; ?></td>
                                 <td><?php echo $user['alergi']; ?></td>
                                 <td>
